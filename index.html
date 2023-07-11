@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>My Contact Form </title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="Mail.ico" rel="icon" type="image/x-icon"/>
+
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+  
+  <body>
+      <div class="container">
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+        <div class="form">
+        <div class="contact-info">
+          <h3 class="title"><b>Scrum Master</b></h3>
+          <p class="text">
+            <h5>I am a person, very responsible for work during working hours assigned by a company. I am very goal oriented, result driven, detailed and focused person. I have several years of experiences & achievements in this field.</h5>
+          </p>
+          
+          <div class="info">
+            <div class="information">
+              <img src="img/location.png" class="icon" alt="" />
+              <p> Plot No 92, Raghava Estates, SItapuram, Vatluru, Andhra Pradesh </p>
+            </div>
+            <div class="information">
+              <img src="img/email.png" class="icon" alt="" />
+              <p>nanaji25@gmail.com </p>
+            </div>
+            <div class="information">
+              <img src="img/phone.png" class="icon" alt="" />
+              <p> +919490909093 </p>
+            
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p> Connect with Me : </p>
+            <div class="social-icons">
+
+              <a href="https://github.com/nanaji25" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+
+              <a href="https://www.linkedin.com/in/kiran-nanaji-nitish-s-2a54b938/" target="_blank" title="Linkedin">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+              <a href="https://www.instagram.com/nanaji25/" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a href="https://www.facebook.com/subbarao.svrb/" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a href="https://twitter.com/SvrbRao/" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              </div>
+              </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span> 
+
+            <div class="wrapper">
+                <div id="error_message">
+                   </div>
+                             
+                   <form action="" id="myform" autocomplete="off" onsubmit ="sendEmail(); return validate(); reset(); return false;">
+                    <h3 class="title"> Contact Me </h3>
+
+                  <div class="input-container">
+                      <input type="text" id="name"  class="input" />
+                      <label for=""> User Name </label>
+                      <span> User Name </span>
+                  </div>
+                  
+                  <div class="input-container">
+                      <input type="text" id="phone" class="input" />
+                      <label for=""> Phone </label>
+                      <span> Phone </span>
+                  </div>
+                  <div class="input-container">
+                      <input type="text" id="email" class="input" />
+                      <label for=""> email </label>
+                      <span> email </span>
+                  </div>
+                  <div class="input-container">
+                      <textarea id="message" class="input" /></textarea>
+                      <label for=""> How Can I Help You ? </label>
+                      <span> How Can I Help You ? </span>
+                  </div>
+                  <input type="submit" value="Submit" class="btn" />
+                    </form>
+                    <center><div><p class="contact-sub-title padd-15">Made with ❤ By Kiran Nanaji Nitish S</p></div></center>
+            </div>
+            </div>
+            </div>
+
+          <div class="bubbles">
+              <img src="img/bubble1.png" alt="">
+              <img src="img/bubble1.png" alt="">
+              <img src="img/bubble1.png" alt="">
+              <img src="img/bubble1.png" alt="">
+              <img src="img/bubble1.png" alt="">
+              <img src="img/bubble1.png" alt="">
+              <img src="img/bubble1.png" alt="">
+            </div>
+           <script src="script.js"></script>
+           <script src="https://smtpjs.com/v3/smtp.js"></script>
+           <script>
+             function sendEmail(){
+               Email.send({
+               SecureToken: "601c8ff7-f1c3-4c63-a5be-68f629040923",
+               To : 'nanaji25@gmail.com',
+               From : "nanaji25@visitmycloudsite.co",
+               Subject : "New Contact Form Eqnuiry",
+               Body : "Name: " + document.getElementById("name").value
+                     + "<br> Phone No: " + document.getElementById("phone").value
+                     + "<br> Email: " + document.getElementById("email").value
+                     + "<br> Message: " + document.getElementById("message").value
+                     })
+                     }
+            </script>
+
+            <script>
+            function validate(){
+              var name = document.getElementById("name").value;
+              var phone = document.getElementById("phone").value;
+              var email = document.getElementById("email").value;
+              var message = document.getElementById("message").value;
+              var error_message = document.getElementById("error_message");
+              
+              error_message.style.padding = "10px";
+              
+              var text;
+              if(name.length < 5){
+                text = "Please Enter Valid Name";
+                error_message.innerHTML = text;
+                return false;
+              }
+              if(isNaN(phone) || phone.length != 10){
+                text = "Please Enter Valid Phone Number";
+                error_message.innerHTML = text;
+                return false;
+              }
+              if(email.indexOf("@") == -1 || email.length < 6){
+                text = "Please Enter Valid Email";
+                error_message.innerHTML = text;
+                return false;
+              }
+              if(message.length <= 10){
+                text = "Please Enter More Than 10 Characters";
+                error_message.innerHTML = text;
+                return false;
+              }
+              alert("Message Sent Successfully!");
+               return true;
+              }
+            </script>
+            </div>
+            </body>
+            </html>
